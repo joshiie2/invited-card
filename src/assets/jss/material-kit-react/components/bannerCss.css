@@ -1,0 +1,20 @@
+.title,
+.subtitle {
+  display: block;
+  position: relative;
+  text-align: center;
+}
+
+.title h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 15vh;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.subtitle h1 {
+  font-size: 40px;
+  color: #ffffff;
+  font-family: "open sans", Arial, sans-serif;
+  text-transform: uppercase;
+}

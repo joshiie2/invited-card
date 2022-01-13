@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+.timer-container {
+  color: #575656;
+  width: 100%;
+}
+
+.timer {
+  display: flex;
+  flex: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.timer div:first-child {
+  text-align: center;
+}
+
+.timer div:first-child p {
+  color: #575656;
+}
+
+.timer div:last-child {
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding-top: 2em;
+  text-align: center;
+}
+
+section p:first-child, .timer div:last-child span {
+  font-size: 3em;
+}
+
+small {
+  color: #575656;
+}
