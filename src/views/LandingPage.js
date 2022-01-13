@@ -40,19 +40,11 @@ export default function LandingPage(props) {
 
       <Banner
         urlImage={image}
-        timer={
-          <Timer
-            title={
-              <h1>
-                Vianney <span style={{ color: "#ff4545" }}>&</span> Jorge
-              </h1>
-            }
-            subtitle={<h1>Nos casamos</h1>}
-          />
-        }
+        title={<h1>Nos casamos</h1>}
+        subtitle={<h1>Vianney & Jorge</h1>}
       />
       <div className={classNames(classes.main /*, classes.mainRaised*/)}>
-        <Invited />
+        <Invited timer={<Timer />} />
       </div>
       <Footer />
     </div>

@@ -4,8 +4,7 @@ import React, { useState, useEffect } from "react";
 // core components
 import "assets/jss/material-kit-react/components/timer.css";
 
-export default function Timer(Props) {
-  const { title, subtitle } = Props;
+export default function Timer() {
   const [day, setDay] = useState(0);
   const [hour, setHour] = useState(0);
   const [minute, setMinute] = useState(0);
@@ -40,25 +39,38 @@ export default function Timer(Props) {
   });
 
   return (
-    <div className="coming-soon">
-      <div>
-        <div className="title">{title}</div>
-        <div className="subtitle">{subtitle}</div>
-        <div className="countdown">
-          <div className="container-day">
-            <h3 className="day">{day}</h3>
-          </div>
-          <div className="container-day">
-            <h3 className="hour">{hour}</h3>
-          </div>
-          <div className="container-day">
-            <h3 className="minute">{minute}</h3>
-          </div>
-          <div className="container-day">
-            <h3 className="second">{second}</h3>
-          </div>
+    <section className="timer-container">
+      <section className="timer">
+        <div>
+          <section>
+            <p>{day}</p>
+            <p>
+              <small>Dias</small>
+            </p>
+          </section>
+          <span>:</span>
+          <section>
+            <p>{hour}</p>
+            <p>
+              <small>Horas</small>
+            </p>
+          </section>
+          <span>:</span>
+          <section>
+            <p>{minute}</p>
+            <p>
+              <small>Minutos</small>
+            </p>
+          </section>
+          <span>:</span>
+          <section>
+            <p>{second}</p>
+            <p>
+              <small>Segundos</small>
+            </p>
+          </section>
         </div>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
