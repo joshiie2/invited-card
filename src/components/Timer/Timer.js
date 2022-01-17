@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "assets/jss/material-kit-react/components/timer.scss";
+import "assets/scss/timer.scss";
 
 export default function Timer() {
   const [day, setDay] = useState(0);

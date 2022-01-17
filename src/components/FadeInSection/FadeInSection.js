@@ -1,6 +1,6 @@
 import React from "react";
 
-import "assets/jss/material-kit-react/views/landingPageSections/productCss.scss";
+import "assets/scss/productCss.scss";
 
 const FadeInSection = (Props) => {
   const domRef = React.useRef();
