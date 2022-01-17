@@ -9,12 +9,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import Banner from "components/Banner/Banner";
-import Timer from "components/Timer/Timer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 
 // Sections for this page
-import styles from "./landingPageStyle";
-import Invited from "./Invited";
+import styles from "assets/jss/material-kit-react/views/landingPage";
+import Bienvenida from "./Bienvenida/Bienvenida";
+import Ceremonia from "./Locaciones/Ceremonia";
+import Celebracion from "./Locaciones/Celebracion";
+import MesaRegalos from "./Regalos/MesaRegalos";
+import Asistencia from "./Asistencia/Asistencia";
+import Vestimenta from "./Locaciones/Vestimenta";
 
 const image =
   "https://images.pexels.com/photos/916344/pexels-photo-916344.jpeg";
@@ -24,6 +28,7 @@ const useStyles = makeStyles(styles);
 export default function LandingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+
   return (
     <div>
       <Header
@@ -40,11 +45,16 @@ export default function LandingPage(props) {
 
       <Banner
         urlImage={image}
-        title={<h1>Nos casamos</h1>}
+        title={<h1>Nuestra Boda</h1>}
         subtitle={<h1>Vianney & Jorge</h1>}
       />
-      <div className={classNames(classes.main /*, classes.mainRaised*/)}>
-        <Invited timer={<Timer />} />
+      <div className={classNames(classes.main)}>
+        <Bienvenida />
+        <Ceremonia />
+        <Celebracion />
+        <Vestimenta />
+        <MesaRegalos />
+        <Asistencia />
       </div>
       <Footer />
     </div>

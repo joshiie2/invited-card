@@ -9,6 +9,12 @@ import {
   title,
 } from "assets/jss/material-kit-react.js";
 
+const text = {
+  color: "#999",
+  fontSize: "22px",
+  lineHeight: "150%",
+};
+
 const infoStyle = {
   infoArea: {
     maxWidth: "360px",
@@ -18,7 +24,6 @@ const infoStyle = {
   iconWrapper: {
     float: "left",
     marginTop: "24px",
-    marginRight: "10px",
   },
   primary: {
     color: primaryColor,
@@ -49,7 +54,10 @@ const infoStyle = {
     color: grayColor,
     overflow: "hidden",
   },
-  title,
+  title: {
+    ...title,
+    fontSize: "25px",
+  },
   description: {
     color: grayColor,
     overflow: "hidden",
@@ -62,6 +70,35 @@ const infoStyle = {
   iconVertical: {
     width: "61px",
     height: "61px",
+  },
+
+  //divs
+  divLeft: {
+    float: "left",
+    paddingLeft: "20%",
+  },
+  divCenter: {
+    height: "100px",
+    paddingTop: "30px",
+  },
+  divRight: {
+    float: "right",
+    fontSize: "28px",
+    paddingRight: "10%",
+  },
+  //descripciones
+  descriptionLeft: {
+    ...text,
+    color: "#999",
+    fontSize: "22px",
+  },
+  descriptionCenter: {
+    ...text,
+    verticalAlign: "center",
+  },
+  descriptionRight: {
+    ...text,
+    fontSize: "22px",
   },
 };
 

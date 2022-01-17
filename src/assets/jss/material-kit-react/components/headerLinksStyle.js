@@ -106,6 +106,12 @@ const headerLinksStyle = (theme) => ({
       padding: "10px 20px",
     },
   },
+  aLink: {
+    "a:link": { textDecoration: "none", color: "inherit" },
+    "a:visited": { textDecoration: "none", color: "inherit" },
+    "a:hover": { textDecoration: "underline", color: "inherit" },
+    "a:active": { textDecoration: "underline", color: "inherit" },
+  },
 });
 
 export default headerLinksStyle;

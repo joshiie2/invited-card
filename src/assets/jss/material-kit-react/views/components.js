@@ -34,13 +34,6 @@ const componentsStyle = {
   textCenter: {
     textAlign: "center",
   },
-  titleColorGreen: {
-    color: "#A2B641",
-    fontSize: "4.2rem",
-    fontWeight: "600",
-    display: "inline-block",
-    position: "relative",
-  },
 };
 
 export default componentsStyle;

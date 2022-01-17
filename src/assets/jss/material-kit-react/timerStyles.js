@@ -1,0 +1,57 @@
+const timerStyles = {
+  ".container": {
+    marginRight: "auto",
+    marginLeft: "auto",
+    paddingLeft: "15px",
+    paddingRight: "15px",
+  },
+  ".row": { marginLeft: "-15px", marginRight: "-15px" },
+  ".col10": {
+    position: "relative",
+    minHeight: "1px",
+    paddingLeft: "15px",
+    paddingRight: "15px",
+  },
+  ".textCenter": { textAlign: "center" },
+  ".circleCountdown.isCountdown": {
+    backgroundColor: "transparent",
+    border: "none",
+    fontFamily: "'Montserrat', sans-serif",
+  },
+  ".circleCountdown": {
+    width: "100%",
+    margin: "0 auto",
+    marginTop: "5px",
+    height: "140px",
+    marginBottom: "20px",
+  },
+  ".isCountdown": { border: "1px solid #ccc", backgroundColor: "#eee" },
+  ".is-countdown": { border: "1px solid #ccc", backgroundColor: "#eee" },
+  ".countdown-rtl": { direction: "rtl" },
+  ".countdown-holding span": { color: "#888" },
+  ".countdown-row": {
+    clear: "both",
+    width: "100%",
+    padding: "0px 2px",
+    textAlign: "center",
+  },
+  ".countdown-show1 .countdown-section": { width: "98%" },
+  ".countdown-show2 .countdown-section": { width: "48%" },
+  ".countdown-show3 .countdown-section": { width: "32.5%" },
+  ".countdown-show4 .countdown-section": { width: "24.5%" },
+  ".countdown-show5 .countdown-section": { width: "19.5%" },
+  ".countdown-show6 .countdown-section": { width: "16.25%" },
+  ".countdown-show7 .countdown-section": { width: "14%" },
+  ".countdown-section": {
+    display: "block",
+    cssFloat: "left",
+    fontSize: "75%",
+    textAlign: "center",
+  },
+  ".countdown-amount": { fontSize: "200%" },
+  ".countdown-period": { display: "block" },
+  ".countdown-descr": { display: "block", width: "100%" },
+  "@media (min-width: 768px)\n.container": { width: "750px" },
+};
+
+export default timerStyles;

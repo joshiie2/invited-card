@@ -18,3 +18,29 @@
   font-family: "open sans", Arial, sans-serif;
   text-transform: uppercase;
 }
+
+#flecha {
+  width: 2rem;
+  height: 2rem;
+  border-right: solid 2px rgba(255, 255, 255, 0.5);
+  border-bottom: solid 2px rgba(255, 255, 255, 0.5);
+  position: relative;
+  left: 50%;
+  top: 10%;
+  transform: rotateZ(45deg);
+  transition: all 0.3s;
+  animation-duration: 0.3s;
+}
+
+#flecha:hover {
+  border-right: solid 3px rgba(255, 255, 255, 0.7);
+  border-bottom: solid 3px rgba(255, 255, 255, 0.7);
+  transform: rotateZ(45deg) translateX(0.5rem) translateY(0.5rem);
+}
+
+#flecha:active {
+  border-right: solid 3px rgba(255, 255, 255, 1);
+  border-bottom: solid 3px rgba(255, 255, 255, 1);
+  transform: rotateZ(45deg) translateY(2rem) translateX(2rem);
+  opacity: 0;
+}

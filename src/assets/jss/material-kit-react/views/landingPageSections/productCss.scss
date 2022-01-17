@@ -1,0 +1,32 @@
+/* Animaciones */
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+section {
+  transform: translate(0, 50%);
+  visibility: hidden;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  will-change: opacity, visibility;
+}
+
+.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}

@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-// @material-ui/core components
-
-// core components
-import "assets/jss/material-kit-react/components/timer.css";
+import "assets/jss/material-kit-react/components/timer.scss";
 
 export default function Timer() {
   const [day, setDay] = useState(0);
@@ -39,38 +36,25 @@ export default function Timer() {
   });
 
   return (
-    <section className="timer-container">
-      <section className="timer">
-        <div>
-          <section>
-            <p>{day}</p>
-            <p>
-              <small>Dias</small>
-            </p>
-          </section>
-          <span>:</span>
-          <section>
-            <p>{hour}</p>
-            <p>
-              <small>Horas</small>
-            </p>
-          </section>
-          <span>:</span>
-          <section>
-            <p>{minute}</p>
-            <p>
-              <small>Minutos</small>
-            </p>
-          </section>
-          <span>:</span>
-          <section>
-            <p>{second}</p>
-            <p>
-              <small>Segundos</small>
-            </p>
-          </section>
+    <div className="container">
+      <div className="timer">
+        <div className="days">
+          <div className="numbers">{day}</div>
+          <div className="string">Dias</div>
         </div>
-      </section>
-    </section>
+        <div className="hours">
+          <div className="numbers">{hour}</div>
+          <div className="string">Horas</div>
+        </div>
+        <div className="minutes">
+          <div className="numbers">{minute}</div>
+          <div className="string">Minutos</div>
+        </div>
+        <div className="seconds">
+          <div className="numbers">{second}</div>
+          <div className="string">Segundos</div>
+        </div>
+      </div>
+    </div>
   );
 }

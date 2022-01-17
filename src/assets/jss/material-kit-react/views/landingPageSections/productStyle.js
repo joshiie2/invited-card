@@ -12,8 +12,24 @@ const productStyle = {
     minHeight: "32px",
     textDecoration: "none",
   },
+  title2: {
+    ...title,
+    marginBottom: "1rem",
+    marginTop: "30px",
+    minHeight: "32px",
+    textDecoration: "none",
+    fontFamily: "'Great Vibes', cursive",
+    fontSize: "12vh",
+    color: "#999",
+  },
   description: {
     color: "#999",
+    fontSize: "22px",
+    lineHeight: "150%",
+  },
+  soon: {
+    fontFamily: "'Great Vibes', cursive",
+    fontSize: "54px",
   },
 };
 
