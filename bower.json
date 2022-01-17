@@ -2,18 +2,18 @@
   "name": "material-kit-react",
   "homepage": "https://github.com/creativetimofficial/material-kit-react",
   "authors": [
-    "creative-tim"
+    "jorge-rios"
   ],
-  "description": "A Badass Material-UI Kit based on Material Design",
+  "description": "Wedding Card",
   "main": "dist/index.js",
   "keywords": [
-    "material",
+    "wedding",
     "design",
     "material-ui",
     "google",
     "twitter"
   ],
-  "license": "Creative TIM License",
+  "license": "Free",
   "ignore": [
     "**/.*",
     "node_modules",
