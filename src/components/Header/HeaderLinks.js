@@ -66,6 +66,18 @@ export default function HeaderLinks() {
           className={classes.navLink}
           type="button"
           onClick={() => {
+            window.location.href = "#nosotros";
+          }}
+        >
+          Nosotros
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          color="transparent"
+          className={classes.navLink}
+          type="button"
+          onClick={() => {
             window.location.href = "#regalos";
           }}
         >

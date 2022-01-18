@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react components for routing our app without refresh
@@ -22,12 +22,27 @@ import Vestimenta from "./Vestimenta/Vestimenta";
 import Fotos from "./Fotos/Fotos";
 
 import Background from "assets/img/wedding/background.jpeg";
+import moment from "moment";
+import { useParams } from "react-router-dom";
+import cryptoJs from "crypto-js";
 
 const useStyles = makeStyles(styles);
 
+let now = new Date();
+const date = moment(now).format("YYYY-MM-DD");
+let personas = "";
+let descripcion = "";
+
 export default function LandingPage(props) {
+  const { user } = useParams();
   const classes = useStyles();
   const { ...rest } = props;
+
+  useEffect(() => {
+    //var bytes = cryptoJs.AES.decrypt(user);
+    //var decryptedData = JSON.parse(bytes.toString("UTF-8"));
+    console.log(bytes);
+  }, []);
 
   return (
     <div>
@@ -46,7 +61,11 @@ export default function LandingPage(props) {
       <Banner
         urlImage={Background}
         title={<h1>Nuestra Boda</h1>}
-        subtitle={<h1>Vianney & Jorge</h1>}
+        subtitle={
+          <h2>
+            Vianney <span style={{ color: "red" }}>&</span> Jorge
+          </h2>
+        }
       />
       <div className={classNames(classes.main)}>
         <Bienvenida />
@@ -55,7 +74,11 @@ export default function LandingPage(props) {
         <Vestimenta />
         <Fotos />
         <MesaRegalos />
-        <Asistencia />
+        <Asistencia
+          fecha={date}
+          personas={personas}
+          descripcion={descripcion}
+        />
       </div>
       <Footer />
     </div>

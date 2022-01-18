@@ -11,11 +11,12 @@ import FadeInSection from "components/FadeInSection/FadeInSection";
 
 const useStyles = makeStyles(styles);
 
+//FECHA - 2022-01-25
 export default function Asistencia(Props) {
   const classes = useStyles();
   const [agree, setAgree] = useState(false);
   const [readMore, setReadMore] = useState(false);
-  const { cantidad } = Props;
+  const { fecha, personas, descripcion } = Props;
 
   const checkboxHandler = () => {
     // if agree === true, it will be set to false
@@ -36,7 +37,7 @@ export default function Asistencia(Props) {
           <FadeInSection>
             <h5 className={classes.description}>
               <b>
-                {cantidad} {Constantes.PERSONAS}
+                {personas} {Constantes.PERSONAS}
               </b>
             </h5>
           </FadeInSection>
@@ -66,7 +67,16 @@ export default function Asistencia(Props) {
           </div>
           <br></br>
           <FadeInSection>
-            <Button color="rose" style={{ width: "250px" }} disabled={!agree}>
+            <Button
+              color="rose"
+              onClick={() => {
+                window.open(
+                  `${Constantes.GOOGLE_FORM}usp=pp_url&entry.1073793534=${fecha}&entry.1919041025=${descripcion}&entry.1631805710=${personas}&entry.996980084=${Constantes.RESPUESTA_SI}`
+                );
+              }}
+              style={{ width: "250px" }}
+              disabled={!agree}
+            >
               {Constantes.BTN_CONFIRMAR_ASISTENCIA}
             </Button>
           </FadeInSection>

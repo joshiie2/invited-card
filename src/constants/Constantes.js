@@ -1,6 +1,6 @@
 // Constantes
 /* Bienvenida */
-export const TITULO_BIENVENIDA = "Estas invitado!";
+export const TITULO_BIENVENIDA = "¡Estas Invitado!";
 export const MENSAJE_BIENVENIDA =
   "Queremos que seas parte de este momento tan especial";
 
@@ -20,7 +20,7 @@ export const URL_UBICACIÓN_CEREMONIA = "https://goo.gl/maps/dydTgvjqQF7yNAZr5";
 
 /* Vestimenta */
 export const TITULO_VESTIMENTA = "CÓDIGO DE VESTIMENTA";
-export const TEXTO_INFORMATIVO_VESTIMENTA = "Formal • No niños";
+export const TEXTO_INFORMATIVO_VESTIMENTA = "Formal • Cubrebocas • No niños ";
 
 /* Fotos */
 export const TITULO_FOTOS = "NOSOTROS";
@@ -57,8 +57,11 @@ export const NUEVA = "Nueva";
 export const PERSONAS = "Personas";
 export const TE_ESPERAMOS = "Te esperamos";
 export const ADVERTENCIA =
-  "Cuidanos y cuídate: Favor de respetar la cantidad de personas establecida en la invitación,";
+  "Cuidanos y cuídate: Favor de respetar la cantidad de personas establecida en la invitación ";
 export const ADVERTENCIA_CONTINUED =
   "actualmente las condiciones sanitarias solo permiten cierta cantidad de personas ";
 export const ADVERTENCIA_END =
   "ya que el evento puede ser suspendido para prevenir contagios COVID-19.";
+export const GOOGLE_FORM =
+  "https://docs.google.com/forms/d/e/1FAIpQLScoO1i61qRSXpePtUdxk03zf7t-04iDlUE4iRVxtRDRdTyioA/viewform?";
+export const RESPUESTA_SI = "SI";

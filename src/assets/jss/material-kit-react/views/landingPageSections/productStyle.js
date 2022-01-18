@@ -14,12 +14,13 @@ const productStyle = {
   },
   title2: {
     ...title,
+    marginLeft: "15px",
+    marginRight: "15px",
     marginBottom: "1rem",
     marginTop: "30px",
-    minHeight: "32px",
     textDecoration: "none",
     fontFamily: "'Great Vibes', cursive",
-    fontSize: "12vh",
+    fontSize: "60px",
     color: "#999",
   },
   description: {

@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 import Parallax from "components/Parallax/Parallax";
 import React from "react";
 import style from "assets/jss/material-kit-react/components/bannerStyle";
-import "assets/css/bannerCss.css";
+import "assets/scss/bannerCss.scss";
 
 const useStyles = makeStyles(style);
 

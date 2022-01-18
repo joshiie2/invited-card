@@ -1,0 +1,73 @@
+.title,
+.subtitle {
+  display: block;
+  position: relative;
+  text-align: center;
+}
+
+.title h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 15vh;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.subtitle h2 {
+  font-size: 4vh;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+}
+
+#flecha {
+  width: 2rem;
+  height: 2rem;
+  border-right: solid 2px rgba(255, 255, 255, 0.9);
+  border-bottom: solid 2px rgba(255, 255, 255, 0.9);
+  position: relative;
+  left: 50%;
+  top: 10%;
+  transform: rotateZ(45deg);
+  transition: all 0.3s;
+  animation-duration: 0.3s;
+}
+
+#flecha {
+  margin-top: 50px;
+  animation-name: floating;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px) rotate(45deg);
+  }
+  50% {
+    transform: translate(0, 15px) rotate(45deg);
+  }
+  100% {
+    transform: translate(0, -0px) rotate(45deg);
+  }
+}
+
+@media (max-width: 675px) {
+  .title h1 {
+    font-size: 12vh;
+  }
+}
+@media (max-width: 525px) {
+  .title h1 {
+    font-size: 8vh;
+  }
+}
+@media (max-width: 440px) {
+  .title h1 {
+    font-size: 8vh;
+  }
+}
+@media (max-width: 365px) {
+  .title h1 {
+    font-size: 8vh;
+  }
+}
