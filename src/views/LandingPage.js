@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react components for routing our app without refresh
@@ -20,28 +20,35 @@ import MesaRegalos from "./Regalos/MesaRegalos";
 import Asistencia from "./Asistencia/Asistencia";
 import Vestimenta from "./Vestimenta/Vestimenta";
 import Fotos from "./Fotos/Fotos";
-
+import * as Constantes from "constants/Constantes";
 import Background from "assets/img/wedding/background.jpeg";
 import moment from "moment";
-import { useParams } from "react-router-dom";
-import cryptoJs from "crypto-js";
 
+var CryptoJS = require("crypto-js");
 const useStyles = makeStyles(styles);
 
 let now = new Date();
 const date = moment(now).format("YYYY-MM-DD");
-let personas = "";
-let descripcion = "";
 
-export default function LandingPage(props) {
-  const { user } = useParams();
+export default function LandingPage(Props) {
   const classes = useStyles();
-  const { ...rest } = props;
+  const [cantidad, setCantidad] = useState(0);
+  const [descripcion, setDescripcion] = useState(null);
+  const { hash } = Props;
 
   useEffect(() => {
-    //var bytes = cryptoJs.AES.decrypt(user);
-    //var decryptedData = JSON.parse(bytes.toString("UTF-8"));
-    console.log(bytes);
+    if (hash) {
+      try {
+        const bytes = CryptoJS.AES.decrypt(hash, Constantes.SECRET_KEY);
+        const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        setCantidad(decryptedData["cantidad"]);
+        setDescripcion(decryptedData["familia-amistad"]);
+      } catch (e) {
+        console.log(e);
+        setCantidad(null);
+        setDescripcion(null);
+      }
+    }
   }, []);
 
   return (
@@ -55,7 +62,7 @@ export default function LandingPage(props) {
           height: 500,
           color: "white",
         }}
-        {...rest}
+        //{...rest}
       />
 
       <Banner
@@ -76,7 +83,7 @@ export default function LandingPage(props) {
         <MesaRegalos />
         <Asistencia
           fecha={date}
-          personas={personas}
+          cantidad={cantidad}
           descripcion={descripcion}
         />
       </div>

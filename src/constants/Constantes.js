@@ -65,3 +65,5 @@ export const ADVERTENCIA_END =
 export const GOOGLE_FORM =
   "https://docs.google.com/forms/d/e/1FAIpQLScoO1i61qRSXpePtUdxk03zf7t-04iDlUE4iRVxtRDRdTyioA/viewform?";
 export const RESPUESTA_SI = "SI";
+
+export const SECRET_KEY = "secret key 123";

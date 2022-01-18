@@ -16,14 +16,52 @@ export default function Asistencia(Props) {
   const classes = useStyles();
   const [agree, setAgree] = useState(false);
   const [readMore, setReadMore] = useState(false);
-  const { fecha, personas, descripcion } = Props;
+  const { fecha, cantidad, descripcion } = Props;
+
+  {
+    console.log(descripcion);
+  }
+  {
+    console.log(cantidad);
+  }
 
   const checkboxHandler = () => {
-    // if agree === true, it will be set to false
-    // if agree === false, it will be set to true
     setAgree(!agree);
-    // Don't miss the exclamation mark
   };
+
+  const BTN_ASISTENCIA =
+    descripcion && cantidad ? (
+      <FadeInSection>
+        <Button
+          color="rose"
+          onClick={() => {
+            window.open(
+              `${Constantes.GOOGLE_FORM}usp=pp_url&entry.1073793534=${fecha}&entry.1919041025=${descripcion}&entry.1631805710=${cantidad}&entry.996980084=${Constantes.RESPUESTA_SI}`
+            );
+          }}
+          style={{ width: "250px" }}
+          disabled={!agree}
+        >
+          {Constantes.BTN_CONFIRMAR_ASISTENCIA}
+        </Button>
+      </FadeInSection>
+    ) : null;
+
+  const CHECK =
+    descripcion && cantidad ? (
+      <input type="checkbox" id="agree" onChange={checkboxHandler} />
+    ) : null;
+
+  const CANTIDAD_PERSONAS =
+    descripcion && cantidad ? (
+      <FadeInSection>
+        <h5 className={classes.description}>
+          <b>
+            {cantidad} {Constantes.PERSONAS}
+          </b>
+        </h5>
+      </FadeInSection>
+    ) : null;
 
   return (
     <div id="asistencia" className={classes.section}>
@@ -34,16 +72,10 @@ export default function Asistencia(Props) {
           </h2>
           <h5 className={classes.description}>{Constantes.TEXTO_ASISTENCIA}</h5>
           <br></br>
-          <FadeInSection>
-            <h5 className={classes.description}>
-              <b>
-                {personas} {Constantes.PERSONAS}
-              </b>
-            </h5>
-          </FadeInSection>
+          {CANTIDAD_PERSONAS}
           <br></br>
           <div>
-            <input type="checkbox" id="agree" onChange={checkboxHandler} />
+            {CHECK}
             <label htmlFor="agree"> {Constantes.ADVERTENCIA}</label>
             <br></br>
             {readMore ? (
@@ -66,20 +98,7 @@ export default function Asistencia(Props) {
             </label>
           </div>
           <br></br>
-          <FadeInSection>
-            <Button
-              color="rose"
-              onClick={() => {
-                window.open(
-                  `${Constantes.GOOGLE_FORM}usp=pp_url&entry.1073793534=${fecha}&entry.1919041025=${descripcion}&entry.1631805710=${personas}&entry.996980084=${Constantes.RESPUESTA_SI}`
-                );
-              }}
-              style={{ width: "250px" }}
-              disabled={!agree}
-            >
-              {Constantes.BTN_CONFIRMAR_ASISTENCIA}
-            </Button>
-          </FadeInSection>
+          {BTN_ASISTENCIA}
           <br></br>
           <br></br>
           <br></br>
