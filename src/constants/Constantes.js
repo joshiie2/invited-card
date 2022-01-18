@@ -7,14 +7,14 @@ export const MENSAJE_BIENVENIDA =
 /* Recepcion */
 export const TITLO_RECEPCION = "RECEPCIÓN";
 export const LUGAR_RECEPCION = "Hacienda Gales";
-export const TEXTO_INFORMATIVO_RECEPCION = "La Celebración será el";
+export const TEXTO_INFORMATIVO_RECEPCION = "Viernes";
 export const HORA_RECEPCION = "7:00";
 export const URL_UBICACIÓN_RECEPCION = "https://goo.gl/maps/nLbgE6WyCSV8hUwn6";
 
 /* Ceremonia */
 export const TITLO_CEREMONIA = "CEREMONIA RELIGIOSA";
 export const LUGAR_CEREMONIA = "Parroquia del Sagrado Corazón de Jesús";
-export const TEXTO_INFORMATIVO_CEREMONIA = "La Ceremonia será el";
+export const TEXTO_INFORMATIVO_CEREMONIA = "La Ceremonia será el día Viernes";
 export const HORA_CEREMONIA = "4:00";
 export const URL_UBICACIÓN_CEREMONIA = "https://goo.gl/maps/dydTgvjqQF7yNAZr5";
 
