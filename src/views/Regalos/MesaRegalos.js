@@ -28,16 +28,26 @@ export default function MesaRegalos() {
           </h2>
           <h5 className={classes.description}>
             {Constantes.TEXTO_INFORMATIVO_REGALOS}
+            <br></br>
+            {Constantes.TEXTO_INFORMATIVO_REGALOS_CONTINUED}
+            <br></br>
+            {Constantes.TEXTO_INFORMATIVO_REGALOS_FINISHED}
           </h5>
           <br></br>
           <FadeInSection>
-            <Button color="rose" style={{ width: "250px" }}>
+            <Button color="rose" style={{ width: "250px" }} disabled={true}>
               {Constantes.BTN_DATOS_BANCARIOS}
             </Button>
           </FadeInSection>
           <br></br>
           <FadeInSection>
-            <Button color="rose" style={{ width: "250px" }}>
+            <Button
+              color="rose"
+              onClick={() => {
+                window.open(Constantes.URL_MESA_REGALOS);
+              }}
+              style={{ width: "250px" }}
+            >
               {Constantes.BTN_MESA} {Constantes.ID_MESA_REGALO}
             </Button>
           </FadeInSection>

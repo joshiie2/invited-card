@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "components/CustomButtons/Button";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -8,14 +8,22 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import * as Constantes from "constants/Constantes";
 import FadeInSection from "components/FadeInSection/FadeInSection";
-import InfoIcon from "@material-ui/icons/Info";
-import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles(styles);
 
 export default function Asistencia(Props) {
   const classes = useStyles();
+  const [agree, setAgree] = useState(false);
+  const [readMore, setReadMore] = useState(false);
   const { cantidad } = Props;
+
+  const checkboxHandler = () => {
+    // if agree === true, it will be set to false
+    // if agree === false, it will be set to true
+    setAgree(!agree);
+    // Don't miss the exclamation mark
+  };
+
   return (
     <div id="asistencia" className={classes.section}>
       <GridContainer justify="center">
@@ -28,16 +36,37 @@ export default function Asistencia(Props) {
           <FadeInSection>
             <h5 className={classes.description}>
               <b>
-                {cantidad} {Constantes.PERSONAS}{" "}
-                <Tooltip title={Constantes.ADVERTENCIA}>
-                  <InfoIcon style={{ fontSize: "20px" }} />
-                </Tooltip>
+                {cantidad} {Constantes.PERSONAS}
               </b>
             </h5>
           </FadeInSection>
           <br></br>
+          <div>
+            <input type="checkbox" id="agree" onChange={checkboxHandler} />
+            <label htmlFor="agree"> {Constantes.ADVERTENCIA}</label>
+            <br></br>
+            {readMore ? (
+              <>
+                <label htmlFor="agree">
+                  {Constantes.ADVERTENCIA_CONTINUED}
+                </label>
+                <br></br>
+                <label htmlFor="agree"> {Constantes.ADVERTENCIA_END}</label>
+              </>
+            ) : null}{" "}
+            <label>
+              <a
+                onClick={() => {
+                  setReadMore(!readMore);
+                }}
+              >
+                {readMore ? "Menos" : "Mas"}
+              </a>
+            </label>
+          </div>
+          <br></br>
           <FadeInSection>
-            <Button color="rose" style={{ width: "250px" }}>
+            <Button color="rose" style={{ width: "250px" }} disabled={!agree}>
               {Constantes.BTN_CONFIRMAR_ASISTENCIA}
             </Button>
           </FadeInSection>

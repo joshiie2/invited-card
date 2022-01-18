@@ -18,10 +18,10 @@ import Ceremonia from "./Locaciones/Ceremonia";
 import Celebracion from "./Locaciones/Celebracion";
 import MesaRegalos from "./Regalos/MesaRegalos";
 import Asistencia from "./Asistencia/Asistencia";
-import Vestimenta from "./Locaciones/Vestimenta";
+import Vestimenta from "./Vestimenta/Vestimenta";
+import Fotos from "./Fotos/Fotos";
 
-const image =
-  "https://images.pexels.com/photos/916344/pexels-photo-916344.jpeg";
+import Background from "assets/img/wedding/background.jpeg";
 
 const useStyles = makeStyles(styles);
 
@@ -44,7 +44,7 @@ export default function LandingPage(props) {
       />
 
       <Banner
-        urlImage={image}
+        urlImage={Background}
         title={<h1>Nuestra Boda</h1>}
         subtitle={<h1>Vianney & Jorge</h1>}
       />
@@ -53,6 +53,7 @@ export default function LandingPage(props) {
         <Ceremonia />
         <Celebracion />
         <Vestimenta />
+        <Fotos />
         <MesaRegalos />
         <Asistencia />
       </div>
