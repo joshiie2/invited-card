@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -20,51 +21,38 @@ import MesaRegalos from "./Regalos/MesaRegalos";
 import Asistencia from "./Asistencia/Asistencia";
 import Vestimenta from "./Vestimenta/Vestimenta";
 import Fotos from "./Fotos/Fotos";
-import * as Constantes from "constants/Constantes";
 import Background from "assets/img/wedding/background.jpeg";
-import moment from "moment";
-import CryptoJS from "crypto-js";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import db from "constants/FirebaseConfig";
 
 const useStyles = makeStyles(styles);
 
-let now = new Date();
-const date = moment(now).format("YYYY-MM-DD hh:mm:ss");
-
 export default function LandingPage(Props) {
   const classes = useStyles();
-  const [cantidad, setCantidad] = useState(null);
-  const [descripcion, setDescripcion] = useState(null);
-  const [hashCode, setHashCode] = useState(null);
-  const [asistencia, setAsistencia] = useState(false);
+  const [data, setData] = useState();
   const { ...rest } = Props;
   const { hash } = Props;
 
+  const obtenerDatos = async () => {
+    const q = query(
+      collection(db, "lista-invitados"),
+      where("hashCode", "==", hash)
+    );
+
+    let info;
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      info = doc.data();
+    });
+
+    return info;
+  };
+
   useEffect(() => {
     if (hash) {
-      try {
-        console.log(hash);
-
-        const key = CryptoJS.enc.Utf8.parse(Constantes.SECRET_KEY);
-        const iv1 = CryptoJS.enc.Utf8.parse(Constantes.SECRET_KEY);
-        const bytes = CryptoJS.AES.decrypt(hash, key, {
-          keySize: 16,
-          iv: iv1,
-          mode: CryptoJS.mode.ECB,
-          padding: CryptoJS.pad.Pkcs7,
-        });
-
-        const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-        setCantidad(decryptedData.cantidad);
-        setDescripcion(decryptedData.descripcion);
-        setHashCode(hash);
-      } catch (e) {
-        console.log(e);
-        setCantidad(null);
-        setDescripcion(null);
-        setAsistencia(false);
-      }
+      obtenerDatos().then((response) => setData(response));
     }
-  });
+  }, []);
 
   return (
     <div>
@@ -97,13 +85,7 @@ export default function LandingPage(Props) {
         <Vestimenta />
         <Fotos />
         <MesaRegalos />
-        <Asistencia
-          fecha={date}
-          cantidad={cantidad}
-          descripcion={descripcion}
-          hashCode={hashCode}
-          asistencia={asistencia}
-        />
+        <Asistencia data={data} />
       </div>
       <Footer />
     </div>

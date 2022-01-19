@@ -3,11 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
+import Button from "components/CustomButtons/Button";
+import FadeInSection from "components/FadeInSection/FadeInSection";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import * as Constantes from "constants/Constantes";
-import FadeInSection from "components/FadeInSection/FadeInSection";
-import ButtonAddGoogleSheet from "components/GoogleOptions/ButtonAddGoogleSheet";
 
 const useStyles = makeStyles(styles);
 
@@ -16,40 +16,37 @@ export default function Asistencia(Props) {
   const classes = useStyles();
   const [agree, setAgree] = useState(false);
   const [readMore, setReadMore] = useState(false);
-  const { fecha, cantidad, descripcion, hashCode, asistencia } = Props;
+  const { data } = Props;
 
   const checkboxHandler = () => {
     setAgree(!agree);
   };
 
   const BTN_ASISTENCIA =
-    asistencia && descripcion && cantidad ? (
+    data && !data.respuesta ? (
       <FadeInSection>
-        <ButtonAddGoogleSheet
-          disabled={!agree}
+        <Button
           color="rose"
+          onClick={() => {}}
           style={{ width: "250px" }}
-          title={Constantes.BTN_CONFIRMAR_ASISTENCIA}
-          fecha={fecha}
-          cantidad={cantidad}
-          descripcion={descripcion}
-          hashCode={hashCode}
-          asistencia={asistencia}
-        />
+          disabled={!agree}
+        >
+          {Constantes.BTN_CONFIRMAR_ASISTENCIA}
+        </Button>
       </FadeInSection>
     ) : null;
 
   const CHECK =
-    asistencia && descripcion && cantidad ? (
+    data && !data.respuesta ? (
       <input type="checkbox" id="agree" onChange={checkboxHandler} />
     ) : null;
 
   const CANTIDAD_PERSONAS =
-    asistencia && descripcion && cantidad ? (
+    data && !data.respuesta ? (
       <FadeInSection>
         <h5 className={classes.description}>
           <b>
-            {cantidad} {Constantes.PERSONAS}
+            {data?.cantidad} {Constantes.PERSONAS}
           </b>
         </h5>
       </FadeInSection>

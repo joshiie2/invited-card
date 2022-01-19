@@ -3,13 +3,35 @@ import Button from "components/CustomButtons/Button";
 import TextField from "@material-ui/core/TextField";
 import * as Constantes from "constants/Constantes";
 import CryptoJS from "crypto-js";
+import { collection, addDoc } from "firebase/firestore";
+import db from "constants/FirebaseConfig";
+import moment from "moment";
+
+let now = new Date();
+const date = moment(now).format("YYYY-MM-DD hh:mm:ss");
 
 export default function CreateInvited() {
   const [cantidad, setCantidad] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [resultado, setResultado] = useState("");
 
-  function generarHash() {
+  const guardarInfo = async () => {
+    const hash = await generarHash();
+    try {
+      await addDoc(collection(db, "lista-invitados"), {
+        cantidad: cantidad,
+        descripcion: descripcion,
+        fecha: date.toString(),
+        hashCode: hash,
+        respuesta: false,
+      });
+      setResultado(hash);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
+
+  const generarHash = async () => {
     const str = {
       descripcion: descripcion,
       cantidad: cantidad,
@@ -24,8 +46,8 @@ export default function CreateInvited() {
       padding: CryptoJS.pad.Pkcs7,
     });
 
-    setResultado(encrypted + "");
-  }
+    return encrypted + "";
+  };
 
   function onlyNumbers(e) {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
@@ -56,7 +78,7 @@ export default function CreateInvited() {
       <Button
         style={{ marginLeft: "10px", marginTop: "10px" }}
         onClick={() => {
-          generarHash();
+          guardarInfo();
         }}
       >
         Crear Invitacion
@@ -67,7 +89,11 @@ export default function CreateInvited() {
         style={{ marginLeft: "10px", marginTop: "10px" }}
         label="Codigo"
         multiline
-        value={`http://localhost:3000/?hash=${resultado}`}
+        value={
+          process.env.REACT_APP_PROD_ENV === "SI"
+            ? `https://3.133.80.110/?r=${resultado}`
+            : `http://localhost:3000/?r=${resultado}`
+        }
         disabled={true}
         fullWidth
       />
