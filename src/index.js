@@ -4,12 +4,12 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 import "assets/scss/material-kit-react.scss?v=1.10.0";
 import LandingPage from "./views/LandingPage";
+import CreateInvited from "./views/CreateInvited";
 
 var hist = createBrowserHistory();
 
-const windowUrl = window.location.search;
-const params = new URLSearchParams(windowUrl);
-const hash = params.get("hash");
+let hash = window.location.search.substring(1);
+hash = hash ? hash.split("=")[1] : null;
 
 ReactDOM.render(
   <Router history={hist}>
@@ -19,6 +19,7 @@ ReactDOM.render(
         path="/"
         component={() => <LandingPage hash={hash} />}
       />
+      <Route exact={true} path="/create" component={CreateInvited} />
     </Switch>
   </Router>,
   document.getElementById("root")

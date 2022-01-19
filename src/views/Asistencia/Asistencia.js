@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "components/CustomButtons/Button";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
@@ -8,6 +7,7 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import * as Constantes from "constants/Constantes";
 import FadeInSection from "components/FadeInSection/FadeInSection";
+import ButtonAddGoogleSheet from "components/GoogleOptions/ButtonAddGoogleSheet";
 
 const useStyles = makeStyles(styles);
 
@@ -16,44 +16,36 @@ export default function Asistencia(Props) {
   const classes = useStyles();
   const [agree, setAgree] = useState(false);
   const [readMore, setReadMore] = useState(false);
-  const { fecha, cantidad, descripcion } = Props;
-
-  {
-    console.log(descripcion);
-  }
-  {
-    console.log(cantidad);
-  }
+  const { fecha, cantidad, descripcion, hashCode, asistencia } = Props;
 
   const checkboxHandler = () => {
     setAgree(!agree);
   };
 
   const BTN_ASISTENCIA =
-    descripcion && cantidad ? (
+    asistencia && descripcion && cantidad ? (
       <FadeInSection>
-        <Button
-          color="rose"
-          onClick={() => {
-            window.open(
-              `${Constantes.GOOGLE_FORM}usp=pp_url&entry.1073793534=${fecha}&entry.1919041025=${descripcion}&entry.1631805710=${cantidad}&entry.996980084=${Constantes.RESPUESTA_SI}`
-            );
-          }}
-          style={{ width: "250px" }}
+        <ButtonAddGoogleSheet
           disabled={!agree}
-        >
-          {Constantes.BTN_CONFIRMAR_ASISTENCIA}
-        </Button>
+          color="rose"
+          style={{ width: "250px" }}
+          title={Constantes.BTN_CONFIRMAR_ASISTENCIA}
+          fecha={fecha}
+          cantidad={cantidad}
+          descripcion={descripcion}
+          hashCode={hashCode}
+          asistencia={asistencia}
+        />
       </FadeInSection>
     ) : null;
 
   const CHECK =
-    descripcion && cantidad ? (
+    asistencia && descripcion && cantidad ? (
       <input type="checkbox" id="agree" onChange={checkboxHandler} />
     ) : null;
 
   const CANTIDAD_PERSONAS =
-    descripcion && cantidad ? (
+    asistencia && descripcion && cantidad ? (
       <FadeInSection>
         <h5 className={classes.description}>
           <b>

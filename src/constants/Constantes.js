@@ -1,4 +1,5 @@
 // Constantes
+
 /* Bienvenida */
 export const TITULO_BIENVENIDA = "¡Estas Invitado!";
 export const MENSAJE_BIENVENIDA =
@@ -7,14 +8,14 @@ export const MENSAJE_BIENVENIDA =
 /* Recepcion */
 export const TITLO_RECEPCION = "RECEPCIÓN";
 export const LUGAR_RECEPCION = "Hacienda Gales";
-export const TEXTO_INFORMATIVO_RECEPCION = "Viernes";
+export const TEXTO_INFORMATIVO_RECEPCION = "Día Viernes";
 export const HORA_RECEPCION = "7:00";
 export const URL_UBICACIÓN_RECEPCION = "https://goo.gl/maps/nLbgE6WyCSV8hUwn6";
 
 /* Ceremonia */
 export const TITLO_CEREMONIA = "CEREMONIA RELIGIOSA";
 export const LUGAR_CEREMONIA = "Parroquia del Sagrado Corazón de Jesús";
-export const TEXTO_INFORMATIVO_CEREMONIA = "La Ceremonia será el día Viernes";
+export const TEXTO_INFORMATIVO_CEREMONIA = "Día Viernes";
 export const HORA_CEREMONIA = "4:00";
 export const URL_UBICACIÓN_CEREMONIA = "https://goo.gl/maps/dydTgvjqQF7yNAZr5";
 
@@ -66,4 +67,8 @@ export const GOOGLE_FORM =
   "https://docs.google.com/forms/d/e/1FAIpQLScoO1i61qRSXpePtUdxk03zf7t-04iDlUE4iRVxtRDRdTyioA/viewform?";
 export const RESPUESTA_SI = "SI";
 
-export const SECRET_KEY = "secret key 123";
+export const SECRET_KEY = "hf8685nfhfhjs9h8";
+export const SPREADSHEET_ID = "1bZc_gotUw2dS9BfVpLtmn5LGyPaGVew0leu1kxh6N_k";
+export const SHEET_ID = "1034917250";
+
+export let LIST_INVITED_ACCEPTED = new Array();

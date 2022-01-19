@@ -19,7 +19,6 @@ const FadeInSection = (Props) => {
         observer.unobserve(domRef.current);
       }
     });
-
     observer.observe(domRef.current);
 
     return () => observer.unobserve(domRef.current);
