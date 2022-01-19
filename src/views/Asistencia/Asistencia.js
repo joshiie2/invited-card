@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -5,9 +6,10 @@ import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button";
 import FadeInSection from "components/FadeInSection/FadeInSection";
-
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import * as Constantes from "constants/Constantes";
+import db from "constants/FirebaseConfig";
+import { updateDoc, doc } from "firebase/firestore";
 
 const useStyles = makeStyles(styles);
 
@@ -22,12 +24,27 @@ export default function Asistencia(Props) {
     setAgree(!agree);
   };
 
+  const actualizar = async () => {
+    console.log(data.id);
+    try {
+      const docRef = doc(db, "lista-invitados", data.id);
+      await updateDoc(docRef, {
+        respuesta: true,
+      });
+      window.location.href = "/agradecimiento";
+    } catch (e) {
+      console.error("Error updating document: ", e);
+    }
+  };
+
   const BTN_ASISTENCIA =
-    data && !data.respuesta ? (
+    data && !data?.data().respuesta ? (
       <FadeInSection>
         <Button
           color="rose"
-          onClick={() => {}}
+          onClick={() => {
+            actualizar();
+          }}
           style={{ width: "250px" }}
           disabled={!agree}
         >
@@ -37,16 +54,16 @@ export default function Asistencia(Props) {
     ) : null;
 
   const CHECK =
-    data && !data.respuesta ? (
+    data && !data?.data().respuesta ? (
       <input type="checkbox" id="agree" onChange={checkboxHandler} />
     ) : null;
 
   const CANTIDAD_PERSONAS =
-    data && !data.respuesta ? (
+    data && !data?.data().respuesta ? (
       <FadeInSection>
         <h5 className={classes.description}>
           <b>
-            {data?.cantidad} {Constantes.PERSONAS}
+            {data?.data().cantidad} {Constantes.PERSONAS}
           </b>
         </h5>
       </FadeInSection>

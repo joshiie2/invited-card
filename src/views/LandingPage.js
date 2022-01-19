@@ -42,7 +42,7 @@ export default function LandingPage(Props) {
     let info;
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      info = doc.data();
+      info = doc;
     });
 
     return info;

@@ -41,6 +41,10 @@ export const TITULO_ASISTENCIA = "CONFIRMAR ASISTENCIA";
 export const TEXTO_ASISTENCIA =
   "Esperamos que seas parte de este momento. ¡Confirmanos tu asistencia!";
 
+/* Agradecimientos */
+export const TITULO_AGRADECIMIENTOS =
+  "Muchas gracias por confirmar tu asistencia!";
+
 /* otros */
 export const DIA_EVENTO = "25";
 export const MES_EVENTO = "Feb";

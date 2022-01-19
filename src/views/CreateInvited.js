@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Button from "components/CustomButtons/Button";
 import TextField from "@material-ui/core/TextField";
@@ -55,48 +56,47 @@ export default function CreateInvited() {
 
   return (
     <div>
-      <TextField
-        style={{ marginLeft: "10px", marginTop: "10px" }}
-        label="Cantidad"
-        value={cantidad}
-        onChange={(event) => {
-          setCantidad(event.target.value);
-        }}
-        inputProps={{ maxLength: 10 }}
-        onInput={(e) => {
-          onlyNumbers(e);
-        }}
-      />
-      <TextField
-        style={{ marginLeft: "10px", marginTop: "10px" }}
-        label="Descripción"
-        value={descripcion}
-        onChange={(event) => {
-          setDescripcion(event.target.value);
-        }}
-      />
-      <Button
-        style={{ marginLeft: "10px", marginTop: "10px" }}
-        onClick={() => {
-          guardarInfo();
-        }}
-      >
-        Crear Invitacion
-      </Button>
-      <br></br>
-      <br></br>
-      <TextField
-        style={{ marginLeft: "10px", marginTop: "10px" }}
-        label="Codigo"
-        multiline
-        value={
-          process.env.REACT_APP_PROD_ENV === "SI"
-            ? `${process.env.REACT_APP_IP_PROD}${resultado}`
-            : `${process.env.REACT_APP_IP_LOCAL}${resultado}`
-        }
-        disabled={true}
-        fullWidth
-      />
+      <div style={{ marginLeft: "10px", marginTop: "10px" }}>
+        <TextField
+          label="Cantidad"
+          value={cantidad}
+          onChange={(event) => {
+            setCantidad(event.target.value);
+          }}
+          inputProps={{ maxLength: 10 }}
+          onInput={(e) => {
+            onlyNumbers(e);
+          }}
+        />
+        <TextField
+          style={{ marginLeft: "10px" }}
+          label="Descripción"
+          value={descripcion}
+          onChange={(event) => {
+            setDescripcion(event.target.value);
+          }}
+        />
+        <Button
+          onClick={() => {
+            guardarInfo();
+          }}
+        >
+          Crear Invitacion
+        </Button>
+        <br></br>
+        <br></br>
+        <TextField
+          label="Codigo"
+          multiline
+          value={
+            process.env.REACT_APP_PROD_ENV == "SI"
+              ? `${process.env.REACT_APP_IP_PROD}${resultado}`
+              : `${process.env.REACT_APP_IP_LOCAL}${resultado}`
+          }
+          disabled={true}
+          fullWidth
+        />
+      </div>
     </div>
   );
 }
