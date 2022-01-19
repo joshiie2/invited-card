@@ -91,8 +91,8 @@ export default function CreateInvited() {
         multiline
         value={
           process.env.REACT_APP_PROD_ENV === "SI"
-            ? `https://3.133.80.110/?r=${resultado}`
-            : `http://localhost:3000/?r=${resultado}`
+            ? `${process.env.REACT_APP_IP_PROD}${resultado}`
+            : `${process.env.REACT_APP_IP_LOCAL}${resultado}`
         }
         disabled={true}
         fullWidth
