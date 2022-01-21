@@ -24,12 +24,11 @@ export default function Bienvenida() {
             {Constantes.TITULO_BIENVENIDA}
           </h2>
           <h3 className={classes.description}>
-            {Constantes.MENSAJE_BIENVENIDA}
-            {Constantes.MENSAJE_BIENVENIDA_MIDDLE}
-            {Constantes.MENSAJE_BIENVENIDA_MIDDLE_END}
-          </h3>
-          <h3 className={classes.description}>
-            {Constantes.MENSAJE_BIENVENIDA_END}
+            Hay momentos en la vida que son especiales por sí solos, pero{" "}
+            <br></br> sin lugar a dudas, el hecho de que Dios nos haya permitido
+            <br></br> compartir junto a ustedes nuestro feliz comienzo, lo
+            <br></br> convierte en un dia inolvidable. <br></br> <br></br>{" "}
+            Gracias por hacer de este día algo especial.
           </h3>
         </GridItem>
       </GridContainer>

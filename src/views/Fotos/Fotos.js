@@ -33,10 +33,12 @@ export default function Fotos() {
             <div className="info">
               <br></br>
               <br></br>
-              <p>Hoy, mañana y siempre</p>
-              <p>caminaré contigo.</p>
-              <p>Mi vida comienza contigo.</p>
-              <p>Dos vidas, un mundo.</p>
+              <h3 style={{ fontSize: "14px" }}>
+                Hoy, mañana y siempre<br></br>
+                caminaré contigo.<br></br>
+                Mi vida comienza contigo.<br></br>
+                Dos vidas, un mundo.<br></br>
+              </h3>
             </div>
           </div>
         </FadeInSection>
@@ -46,9 +48,12 @@ export default function Fotos() {
             <div className="info">
               <br></br>
               <br></br>
-              <br></br>
-              <p>Amor es solo una palabra</p>
-              <p>hasta que alguien llega para darle sentido.</p>
+              <h3 style={{ fontSize: "14px" }}>
+                Amor es solo una palabra<br></br>
+                hasta que alguien llega para darle sentido.<br></br>
+              </h3>
+              <p></p>
+              <p></p>
             </div>
           </div>
         </FadeInSection>
@@ -59,7 +64,9 @@ export default function Fotos() {
               <br></br>
               <br></br>
               <br></br>
-              <p>Con ustedes compartimos nuestro mejor momento</p>
+              <h3 style={{ fontSize: "14px" }}>
+                Con ustedes compartimos nuestro mejor momento<br></br>
+              </h3>
             </div>
           </div>
         </FadeInSection>

@@ -2,14 +2,6 @@
 
 /* Bienvenida */
 export const TITULO_BIENVENIDA = "¡Estás Invitado!";
-export const MENSAJE_BIENVENIDA =
-  "Hay momentos en la vida que son especiales por sí solos, pero sin lugar a dudas, ";
-export const MENSAJE_BIENVENIDA_MIDDLE =
-  "el hecho de que Dios nos haya permitido compartir junto a ustedes nuestro feliz comienzo, ";
-export const MENSAJE_BIENVENIDA_MIDDLE_END =
-  "lo convierte en un dia inolvidable.";
-export const MENSAJE_BIENVENIDA_END =
-  "Gracias por hacer de este día algo especial.";
 
 /* Recepcion */
 export const TITLO_RECEPCION = "RECEPCIÓN";
