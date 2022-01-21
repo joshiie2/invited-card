@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Button from "components/CustomButtons/Button";
 import TextField from "@material-ui/core/TextField";
-import * as Constantes from "constants/Constantes";
 import CryptoJS from "crypto-js";
 import { collection, addDoc } from "firebase/firestore";
 import db from "constants/FirebaseConfig";
@@ -19,7 +17,7 @@ export default function CreateInvited() {
   const guardarInfo = async () => {
     const hash = await generarHash();
     try {
-      await addDoc(collection(db, "lista-invitados"), {
+      await addDoc(collection(db, process.env.REACT_APP_FIREBASE_COLLECTION), {
         cantidad: cantidad,
         descripcion: descripcion,
         fecha: date.toString(),
@@ -38,8 +36,8 @@ export default function CreateInvited() {
       cantidad: cantidad,
     };
 
-    const key = CryptoJS.enc.Utf8.parse(Constantes.SECRET_KEY);
-    const iv1 = CryptoJS.enc.Utf8.parse(Constantes.SECRET_KEY);
+    const key = CryptoJS.enc.Utf8.parse(process.env.REACT_APP_SECRET_KEY);
+    const iv1 = CryptoJS.enc.Utf8.parse(process.env.REACT_APP_SECRET_KEY);
     const encrypted = CryptoJS.AES.encrypt(JSON.stringify(str), key, {
       keySize: 16,
       iv: iv1,

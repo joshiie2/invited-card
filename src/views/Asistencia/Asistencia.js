@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -27,7 +26,11 @@ export default function Asistencia(Props) {
   const actualizar = async () => {
     console.log(data.id);
     try {
-      const docRef = doc(db, "lista-invitados", data.id);
+      const docRef = doc(
+        db,
+        process.env.REACT_APP_FIREBASE_COLLECTION,
+        data.id
+      );
       await updateDoc(docRef, {
         respuesta: true,
       });
@@ -86,15 +89,24 @@ export default function Asistencia(Props) {
           <br></br>
           <div>
             {CHECK}
-            <label htmlFor="agree"> {Constantes.ADVERTENCIA}</label>
+            <label htmlFor="agree">
+              {" "}
+              Cuídanos y cuídate: Haz el favor de respetar la cantidad de
+              personas establecidas en la invitación.
+            </label>
             <br></br>
             {readMore ? (
               <>
                 <label htmlFor="agree">
-                  {Constantes.ADVERTENCIA_CONTINUED}
+                  Actualmente las condiciones sanitarias sólo permiten cierta
+                  cantidad de invitados, ya que el evento
                 </label>
                 <br></br>
-                <label htmlFor="agree"> {Constantes.ADVERTENCIA_END}</label>
+                <label htmlFor="agree">
+                  {" "}
+                  podria ser suspendido debido al incumplimiento de las normas
+                  sanitarias contra COVID-19.
+                </label>
               </>
             ) : null}{" "}
             <label>

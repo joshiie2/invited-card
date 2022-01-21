@@ -1,18 +1,10 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// react components for routing our app without refresh
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-// core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import Banner from "components/Banner/Banner";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-
-// Sections for this page
 import styles from "assets/jss/material-kit-react/views/landingPage";
 import Bienvenida from "./Bienvenida/Bienvenida";
 import Ceremonia from "./Locaciones/Ceremonia";
@@ -35,7 +27,7 @@ export default function LandingPage(Props) {
 
   const obtenerDatos = async () => {
     const q = query(
-      collection(db, "lista-invitados"),
+      collection(db, process.env.REACT_APP_FIREBASE_COLLECTION),
       where("hashCode", "==", hash)
     );
 

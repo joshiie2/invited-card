@@ -9,7 +9,6 @@ import GridItem from "components/Grid/GridItem.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
-import * as Constantes from "constants/Constantes";
 import Panda from "assets/img/agradecimiento/panda.png";
 
 const useStyles = makeStyles(styles);
@@ -21,7 +20,7 @@ export default function Agradecimientos() {
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={12}>
           <h2 className={classes.title2}>
-            {Constantes.TITULO_AGRADECIMIENTOS}
+            Muchas gracias por confirmar tu asistencia!
           </h2>
         </GridItem>
       </GridContainer>

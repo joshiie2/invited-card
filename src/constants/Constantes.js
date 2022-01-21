@@ -38,10 +38,6 @@ export const TITULO_ASISTENCIA = "CONFIRMA TU ASISTENCIA";
 export const TEXTO_ASISTENCIA = "Esperamos que seas parte de este momento.";
 export const TEXTO_ASISTENCIA_CONTINUED = "¡Confírmanos tu asistencia!";
 
-/* Agradecimientos */
-export const TITULO_AGRADECIMIENTOS =
-  "Muchas gracias por confirmar tu asistencia!";
-
 /* otros */
 export const DIA_EVENTO = "25";
 export const MES_EVENTO = "Feb";
@@ -58,12 +54,4 @@ export const ESTADO = "Sonora";
 export const NUEVA = "Nueva";
 export const PERSONAS = "Personas";
 export const TE_ESPERAMOS = "Te esperamos";
-export const ADVERTENCIA =
-  "Cuídanos y cuídate: Haz el favor de respetar la cantidad de personas establecidas en la invitación.";
-export const ADVERTENCIA_CONTINUED =
-  "Actualmente las condiciones sanitarias sólo permiten cierta cantidad de invitados, ya que el evento ";
-export const ADVERTENCIA_END =
-  "podria ser suspendido debido al incumplimiento de las normas sanitarias contra COVID-19.";
 export const RESPUESTA_SI = "SI";
-
-export const SECRET_KEY = "hf8685nfhfhjs9h8";

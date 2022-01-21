@@ -5,7 +5,6 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import Regalo from "assets/img/wedding/regalo2.png";
-
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import * as Constantes from "constants/Constantes";
 import FadeInSection from "components/FadeInSection/FadeInSection";

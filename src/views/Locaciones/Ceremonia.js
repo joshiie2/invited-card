@@ -1,15 +1,10 @@
 import React from "react";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
-// @material-ui/icons
 import Anillos from "assets/img/wedding/anillos2.png";
-// core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button";
-
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import InfoDate from "components/InfoArea/InfoDate";
 import * as Constantes from "constants/Constantes";
