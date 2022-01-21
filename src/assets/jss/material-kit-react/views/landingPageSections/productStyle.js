@@ -32,6 +32,9 @@ const productStyle = {
     fontFamily: "'Great Vibes', cursive",
     fontSize: "54px",
   },
+  cursive: {
+    fontWeight: "700",
+  },
 };
 
 export default productStyle;

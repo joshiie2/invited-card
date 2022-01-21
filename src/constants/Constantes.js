@@ -1,9 +1,15 @@
 // Constantes
 
 /* Bienvenida */
-export const TITULO_BIENVENIDA = "¡Estas Invitado!";
+export const TITULO_BIENVENIDA = "¡Estás Invitado!";
 export const MENSAJE_BIENVENIDA =
-  "Queremos que seas parte de este momento tan especial";
+  "Hay momentos en la vida que son especiales por sí solos, pero sin lugar a dudas, ";
+export const MENSAJE_BIENVENIDA_MIDDLE =
+  "el hecho de que Dios nos haya permitido compartir junto a ustedes nuestro feliz comienzo, ";
+export const MENSAJE_BIENVENIDA_MIDDLE_END =
+  "lo convierte en un dia inolvidable.";
+export const MENSAJE_BIENVENIDA_END =
+  "Gracias por hacer de este día algo especial.";
 
 /* Recepcion */
 export const TITLO_RECEPCION = "RECEPCIÓN";
@@ -30,15 +36,15 @@ export const TITULO_FOTOS = "NOSOTROS";
 export const TITULO_REGALOS = "REGALOS";
 export const TEXTO_INFORMATIVO_REGALOS = "Lo más importante es tu presencia,";
 export const TEXTO_INFORMATIVO_REGALOS_CONTINUED =
-  "pero si deseas hacernos un regalo aqui";
-export const TEXTO_INFORMATIVO_REGALOS_FINISHED = "tienes algunas sugerencias";
+  "pero si deseas hacernos un regalo aquí";
+export const TEXTO_INFORMATIVO_REGALOS_FINISHED = "tienes algunas sugerencias:";
 export const ID_MESA_REGALO = "2C3WN6P9RX8A7";
 export const URL_MESA_REGALOS = `https://www.amazon.com.mx/wedding/jorge-rios-vianney-moroyoqui-esperanza-february-2022/registry/${ID_MESA_REGALO}`;
 
 /* Asistencia */
-export const TITULO_ASISTENCIA = "CONFIRMAR ASISTENCIA";
-export const TEXTO_ASISTENCIA =
-  "Esperamos que seas parte de este momento. ¡Confirmanos tu asistencia!";
+export const TITULO_ASISTENCIA = "CONFIRMA TU ASISTENCIA";
+export const TEXTO_ASISTENCIA = "Esperamos que seas parte de este momento.";
+export const TEXTO_ASISTENCIA_CONTINUED = "¡Confírmanos tu asistencia!";
 
 /* Agradecimientos */
 export const TITULO_AGRADECIMIENTOS =
@@ -61,11 +67,11 @@ export const NUEVA = "Nueva";
 export const PERSONAS = "Personas";
 export const TE_ESPERAMOS = "Te esperamos";
 export const ADVERTENCIA =
-  "Cuidanos y cuídate: Favor de respetar la cantidad de personas establecida en la invitación ";
+  "Cuídanos y cuídate: Haz el favor de respetar la cantidad de personas establecidas en la invitación.";
 export const ADVERTENCIA_CONTINUED =
-  "actualmente las condiciones sanitarias solo permiten cierta cantidad de personas ";
+  "Actualmente las condiciones sanitarias sólo permiten cierta cantidad de invitados, ya que el evento ";
 export const ADVERTENCIA_END =
-  "ya que el evento puede ser suspendido para prevenir contagios COVID-19.";
+  "podria ser suspendido debido al incumplimiento de las normas sanitarias contra COVID-19.";
 export const RESPUESTA_SI = "SI";
 
 export const SECRET_KEY = "hf8685nfhfhjs9h8";

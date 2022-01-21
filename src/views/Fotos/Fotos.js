@@ -31,14 +31,12 @@ export default function Fotos() {
           <div className="card">
             <div className="image image1"></div>
             <div className="info">
-              <h2></h2>
-              <p>
-                Erase una ves un universo oscuro, un universo helado y
-                matematico, No se sabe porque dos estrellas se miraron y se
-                enamoraron tan grande y hermoso fue su amor que dejaron de hacer
-                infalibles orbitas elípticas para dibujarse tiernos corazones
-                entrelazados.
-              </p>
+              <br></br>
+              <br></br>
+              <p>Hoy, mañana y siempre</p>
+              <p>caminaré contigo.</p>
+              <p>Mi vida comienza contigo.</p>
+              <p>Dos vidas, un mundo.</p>
             </div>
           </div>
         </FadeInSection>
@@ -46,14 +44,11 @@ export default function Fotos() {
           <div className="card">
             <div className="image image2"></div>
             <div className="info">
-              <h2></h2>
-              <p>
-                Se querían tanto pero la distancia era demaciado grande que no
-                podían acariciarse ni besarse, podrían estar juntas pero eso
-                estaba prohibido en un universo negro, helado y matemático. Aun
-                así no se resignaron a vivir separadas alejadas por un
-                silencioso y denso vacío.
-              </p>
+              <br></br>
+              <br></br>
+              <br></br>
+              <p>Amor es solo una palabra</p>
+              <p>hasta que alguien llega para darle sentido.</p>
             </div>
           </div>
         </FadeInSection>
@@ -61,13 +56,10 @@ export default function Fotos() {
           <div className="card">
             <div className="image image3"></div>
             <div className="info">
-              <h2></h2>
-              <p>
-                Así que decidieron quebrantar la eterna ley del perfecto y
-                ordenado universo con un cómplice guiño, salieron de sus orbitas
-                convirtiéndose en dos estrellas fugaces dirigiéndose a un mismo
-                destino desenfrenadas culminando en una explosión de amor.
-              </p>
+              <br></br>
+              <br></br>
+              <br></br>
+              <p>Con ustedes compartimos nuestro mejor momento</p>
             </div>
           </div>
         </FadeInSection>

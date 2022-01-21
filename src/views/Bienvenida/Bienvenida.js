@@ -23,9 +23,14 @@ export default function Bienvenida() {
           <h2 className={`pulse ${classes.title2}`}>
             {Constantes.TITULO_BIENVENIDA}
           </h2>
-          <h5 className={classes.description}>
+          <h3 className={classes.description}>
             {Constantes.MENSAJE_BIENVENIDA}
-          </h5>
+            {Constantes.MENSAJE_BIENVENIDA_MIDDLE}
+            {Constantes.MENSAJE_BIENVENIDA_MIDDLE_END}
+          </h3>
+          <h3 className={classes.description}>
+            {Constantes.MENSAJE_BIENVENIDA_END}
+          </h3>
         </GridItem>
       </GridContainer>
       <div>

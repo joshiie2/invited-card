@@ -76,7 +76,11 @@ export default function Asistencia(Props) {
           <h2 className={classes.title}>
             <InfoArea title={Constantes.TITULO_ASISTENCIA} vertical />
           </h2>
-          <h5 className={classes.description}>{Constantes.TEXTO_ASISTENCIA}</h5>
+          <h5 className={classes.description}>
+            {Constantes.TEXTO_ASISTENCIA}
+            <br></br>
+            {Constantes.TEXTO_ASISTENCIA_CONTINUED}
+          </h5>
           <br></br>
           {CANTIDAD_PERSONAS}
           <br></br>
