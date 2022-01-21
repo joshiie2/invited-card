@@ -31,11 +31,13 @@ export default function Fotos() {
           <div className="card">
             <div className="image image1"></div>
             <div className="info">
-              <h2>About me</h2>
+              <h2></h2>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Possimus libero voluptatum sit! Sequi facere in tempora
-                quibusdam mollitia provident aut?
+                Erase una ves un universo oscuro, un universo helado y
+                matematico, No se sabe porque dos estrellas se miraron y se
+                enamoraron tan grande y hermoso fue su amor que dejaron de hacer
+                infalibles orbitas elípticas para dibujarse tiernos corazones
+                entrelazados.
               </p>
             </div>
           </div>
@@ -44,11 +46,13 @@ export default function Fotos() {
           <div className="card">
             <div className="image image2"></div>
             <div className="info">
-              <h2>About me</h2>
+              <h2></h2>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Possimus libero voluptatum sit! Sequi facere in tempora
-                quibusdam mollitia provident aut?
+                Se querían tanto pero la distancia era demaciado grande que no
+                podían acariciarse ni besarse, podrían estar juntas pero eso
+                estaba prohibido en un universo negro, helado y matemático. Aun
+                así no se resignaron a vivir separadas alejadas por un
+                silencioso y denso vacío.
               </p>
             </div>
           </div>
@@ -57,11 +61,12 @@ export default function Fotos() {
           <div className="card">
             <div className="image image3"></div>
             <div className="info">
-              <h2>About me</h2>
+              <h2></h2>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Possimus libero voluptatum sit! Sequi facere in tempora
-                quibusdam mollitia provident aut?
+                Así que decidieron quebrantar la eterna ley del perfecto y
+                ordenado universo con un cómplice guiño, salieron de sus orbitas
+                convirtiéndose en dos estrellas fugaces dirigiéndose a un mismo
+                destino desenfrenadas culminando en una explosión de amor.
               </p>
             </div>
           </div>

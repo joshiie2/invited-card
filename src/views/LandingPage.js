@@ -71,11 +71,7 @@ export default function LandingPage(Props) {
       <Banner
         urlImage={Background}
         title={<h1>Nuestra Boda</h1>}
-        subtitle={
-          <h2>
-            Vianney <span style={{ color: "red" }}>&</span> Jorge
-          </h2>
-        }
+        subtitle={<h2>Vianney & Jorge</h2>}
       />
 
       <div className={classNames(classes.main)}>
