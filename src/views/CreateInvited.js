@@ -12,6 +12,8 @@ import TableRow from "@material-ui/core/TableRow";
 import { withStyles } from "@material-ui/core";
 import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import db from "constants/FirebaseConfig";
+import "assets/css/create-invited.css";
+import Whatsapp from "assets/img/wedding/whatsapp.png";
 
 let now = new Date();
 const date = moment(now).format("YYYY-MM-DD hh:mm:ss");
@@ -23,11 +25,14 @@ const StyledTableCell = withStyles((theme) => ({
   },
   body: {
     fontSize: 14,
+    width: "20%",
+    height: "50px",
   },
 }))(TableCell);
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
+    width: "100%",
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
@@ -204,23 +209,24 @@ export default function CreateInvited() {
                   <StyledTableCell component="th" scope="row">
                     {row?.descripcion}
                   </StyledTableCell>
-                  <StyledTableCell align="center">
+                  <StyledTableCell component="th" scope="row" align="center">
                     {row?.cantidad}
                   </StyledTableCell>
-                  <StyledTableCell align="center">
+                  <StyledTableCell component="th" scope="row" align="center">
                     {row?.respuesta ? "Si" : "No"}
                   </StyledTableCell>
-                  <StyledTableCell align="center" style={{ width: 100 }}>
+                  <StyledTableCell component="th" scope="row" align="center">
                     {row?.hashCode}
                   </StyledTableCell>
-                  <StyledTableCell align="center">
+                  <StyledTableCell component="th" scope="row" align="center">
                     <a
                       href={`whatsapp://send?text=Buen dia! ${URL}${row.hashCode}`}
                       data-action="share/whatsapp/share"
                       target="_blank"
                       rel="noreferrer"
+                      className="whatsapp"
                     >
-                      Compartir
+                      <img src={Whatsapp} className="whatsapp-icon" />
                     </a>
                   </StyledTableCell>
                 </StyledTableRow>
