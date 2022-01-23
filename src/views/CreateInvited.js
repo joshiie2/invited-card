@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import Button from "components/CustomButtons/Button";
 import TextField from "@material-ui/core/TextField";
@@ -46,6 +47,9 @@ const HEADER_COLUMN = [
   "HasCode",
   "Compartir",
 ];
+
+const MENSAJE =
+  "%5fHola, Buen día!%5f 💌%0a%0a%5fEsperamos que se encuentren muy bien.%5f%0a%5fLes hacemos llegar la invitación a Nuestra Boda%5f🤵👰 %5fesperando que%5f%0a%5fpuedan asistir, estamos muy contentos de compartir este momento%5f%0acon ustedes.%0a%0a%5fEn este mensaje se adjunta el link de la invitación, donde pueden%5f%0a%5fencontrar todos los detalles del evento, favor de confirmar su%5f%0a%5fasistencia dentro de la misma y respetar la cantidad de invitados.%5f%0a%0a%5fMuchas gracias.%5f%0a%0a%5fAtt: Vianney y Jorge%5f❤️";
 
 export default function CreateInvited() {
   const [cantidad, setCantidad] = useState("");
@@ -139,6 +143,16 @@ export default function CreateInvited() {
     return encrypted + "";
   };
 
+  const encodeURL = (url) => {
+    return encodeURIComponent(url)
+      .replace("!", "%21")
+      .replace("'", "%27")
+      .replace("(", "%28")
+      .replace(")", "%29")
+      .replace("*", "%2A")
+      .replace("%20", "+");
+  };
+
   function onlyNumbers(e) {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
   }
@@ -220,7 +234,9 @@ export default function CreateInvited() {
                   </StyledTableCell>
                   <StyledTableCell component="th" scope="row" align="center">
                     <a
-                      href={`whatsapp://send?text=Buen dia! ${URL}${row.hashCode}`}
+                      href={`whatsapp://send?text=${MENSAJE}%0a%0a${encodeURL(
+                        URL + row.hashCode
+                      )}`}
                       data-action="share/whatsapp/share"
                       target="_blank"
                       rel="noreferrer"
