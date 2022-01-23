@@ -10,8 +10,7 @@ import Thanks from "./views/Thanks";
 var hist = createBrowserHistory();
 
 let hash = window.location.search.substring(1);
-hash = hash ? hash?.substring(2, hash?.length) : null;
-hash = decodeURIComponent(hash);
+hash = hash ? decodeURIComponent(hash?.substring(2, hash?.length)) : null;
 console.log(hash);
 
 ReactDOM.render(
