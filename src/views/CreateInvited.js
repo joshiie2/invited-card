@@ -11,10 +11,19 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { withStyles } from "@material-ui/core";
-import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  addDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import db from "constants/FirebaseConfig";
-import "assets/css/create-invited.css";
-import Whatsapp from "assets/img/wedding/whatsapp.png";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
 let now = new Date();
 const date = moment(now).format("YYYY-MM-DD hh:mm:ss");
@@ -40,13 +49,7 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const HEADER_COLUMN = [
-  "Familia/Amistad",
-  "Cantidad",
-  "Respuesta",
-  "HasCode",
-  "Compartir",
-];
+const HEADER_COLUMN = ["Familia/Amistad", "Cantidad", "Respuesta", "Opciones"];
 
 const MENSAJE =
   "%5fHola, Buen día!%5f 💌%0a%0a%5fEsperamos que se encuentren muy bien.%5f%0a%5fLes hacemos llegar la invitación a Nuestra Boda%5f🤵👰 %5fesperando que%5f%0a%5fpuedan asistir, estamos muy contentos de compartir este momento%5f%0acon ustedes.%0a%0a%5fEn este mensaje se adjunta el link de la invitación, donde pueden%5f%0a%5fencontrar todos los detalles del evento, favor de confirmar su%5f%0a%5fasistencia dentro de la misma y respetar la cantidad de invitados.%5f%0a%0a%5fMuchas gracias.%5f%0a%0a%5fAtt: Vianney y Jorge%5f❤️";
@@ -67,7 +70,7 @@ export default function CreateInvited() {
     let info = new Array();
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      info.push(doc.data());
+      info.push({ id: doc.id, ...doc.data() });
     });
 
     return info;
@@ -90,6 +93,11 @@ export default function CreateInvited() {
     } else {
       return false;
     }
+  };
+
+  const borrarInfo = async (id) => {
+    await deleteDoc(doc(db, process.env.REACT_APP_FIREBASE_COLLECTION, id));
+    obtenerDatos().then((response) => setData(response));
   };
 
   const guardarInfo = async () => {
@@ -143,19 +151,20 @@ export default function CreateInvited() {
     return encrypted + "";
   };
 
-  const encodeURL = (url) => {
-    return encodeURIComponent(url)
-      .replace("!", "%21")
-      .replace("'", "%27")
-      .replace("(", "%28")
-      .replace(")", "%29")
-      .replace("*", "%2A")
-      .replace("%20", "+");
-  };
-
   function onlyNumbers(e) {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
   }
+
+  const redireccionar = (hash) => {
+    const encode = encodeURIComponent(hash);
+    const url = URL + encode;
+    let anchor = document.createElement("a");
+    const HREF = `whatsapp://send?text=${MENSAJE} %0a ${url}`;
+    anchor.href = HREF;
+    anchor.target = "_blank";
+    console.log(HREF);
+    anchor.click();
+  };
 
   const URL =
     process.env.REACT_APP_PROD_ENV == "SI"
@@ -230,20 +239,20 @@ export default function CreateInvited() {
                     {row?.respuesta ? "Si" : "No"}
                   </StyledTableCell>
                   <StyledTableCell component="th" scope="row" align="center">
-                    {row?.hashCode}
-                  </StyledTableCell>
-                  <StyledTableCell component="th" scope="row" align="center">
-                    <a
-                      href={`whatsapp://send?text=${MENSAJE}%0a%0a${encodeURL(
-                        URL + row.hashCode
-                      )}`}
-                      data-action="share/whatsapp/share"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="whatsapp"
+                    <IconButton
+                      style={{ color: "#25d366" }}
+                      aria-label="shared"
+                      onClick={() => redireccionar(row?.hashCode)}
                     >
-                      <img src={Whatsapp} className="whatsapp-icon" />
-                    </a>
+                      <WhatsAppIcon />
+                    </IconButton>
+                    <IconButton
+                      color="secondary"
+                      aria-label="delete"
+                      onClick={() => borrarInfo(row?.id)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

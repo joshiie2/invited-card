@@ -11,6 +11,7 @@ var hist = createBrowserHistory();
 
 let hash = window.location.search.substring(1);
 hash = hash ? hash?.substring(2, hash?.length) : null;
+hash = decodeURIComponent(hash);
 console.log(hash);
 
 ReactDOM.render(
