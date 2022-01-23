@@ -16,6 +16,7 @@ import {
   query,
   where,
   getDocs,
+  getDoc,
   addDoc,
   doc,
   deleteDoc,
@@ -49,7 +50,13 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const HEADER_COLUMN = ["Familia/Amistad", "Cantidad", "Respuesta", "Opciones"];
+const HEADER_COLUMN = [
+  "Id",
+  "Familia/Amistad",
+  "Cantidad",
+  "Respuesta",
+  "Opciones",
+];
 
 const MENSAJE =
   "%5fHola, Buen día!%5f 💌%0a%0a%5fEsperamos que se encuentren muy bien.%5f%0a%5fLes hacemos llegar la invitación a Nuestra Boda%5f🤵👰 %5fesperando que%5f%0a%5fpuedan asistir, estamos muy contentos de compartir este momento%5f%0acon ustedes.%0a%0a%5fEn este mensaje se adjunta el link de la invitación, donde pueden%5f%0a%5fencontrar todos los detalles del evento, favor de confirmar su%5f%0a%5fasistencia dentro de la misma y respetar la cantidad de invitados.%5f%0a%0a%5fMuchas gracias.%5f%0a%0a%5fAtt: Vianney y Jorge%5f❤️";
@@ -76,23 +83,10 @@ export default function CreateInvited() {
     return info;
   };
 
-  const obtenerDatoPorId = async (hash) => {
-    const q = query(
-      collection(db, process.env.REACT_APP_FIREBASE_COLLECTION),
-      where("hashCode", "==", hash)
-    );
-
-    let info;
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      info = doc.data();
-    });
-
-    if (info) {
-      return true;
-    } else {
-      return false;
-    }
+  const limpiar = () => {
+    setCantidad("");
+    setDescripcion("");
+    setResultado("");
   };
 
   const borrarInfo = async (id) => {
@@ -109,61 +103,35 @@ export default function CreateInvited() {
       return;
     }
 
-    const str = {
-      descripcion: descripcion,
-      cantidad: cantidad,
-    };
-
-    const hash = await generarHash(str);
-
-    obtenerDatoPorId(hash).then(async (response) => {
-      if (!response) {
-        try {
-          await addDoc(
-            collection(db, process.env.REACT_APP_FIREBASE_COLLECTION),
-            {
-              cantidad: cantidad,
-              descripcion: descripcion,
-              fecha: date.toString(),
-              hashCode: hash,
-              respuesta: false,
-            }
-          );
-          setResultado(hash);
-          obtenerDatos().then((response) => setData(response));
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        }
-      }
-    });
-  };
-
-  const generarHash = async (str) => {
-    const key = CryptoJS.enc.Utf8.parse(process.env.REACT_APP_SECRET_KEY);
-    const iv1 = CryptoJS.enc.Utf8.parse(process.env.REACT_APP_SECRET_KEY);
-    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(str), key, {
-      keySize: 16,
-      iv: iv1,
-      mode: CryptoJS.mode.ECB,
-      padding: CryptoJS.pad.Pkcs7,
-    });
-
-    return encrypted + "";
+    try {
+      await addDoc(collection(db, process.env.REACT_APP_FIREBASE_COLLECTION), {
+        cantidad: cantidad,
+        descripcion: descripcion,
+        fecha: date.toString(),
+        respuesta: false,
+      }).then((response) => {
+        setResultado(response.id);
+      });
+      obtenerDatos().then((response) => setData(response));
+      limpiar();
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   };
 
   function onlyNumbers(e) {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
   }
 
-  const redireccionar = (hash) => {
-    const encode = encodeURIComponent(hash);
+  const redireccionar = (id) => {
+    const encode = encodeURIComponent(id);
     const url = URL + encode;
     let anchor = document.createElement("a");
     const HREF = `whatsapp://send?text=${MENSAJE} %0a ${url}`;
     anchor.href = HREF;
     anchor.target = "_blank";
-    console.log(HREF);
     anchor.click();
+    console.log(HREF);
   };
 
   const URL =
@@ -228,7 +196,10 @@ export default function CreateInvited() {
           {data ? (
             <TableBody>
               {data?.map((row) => (
-                <StyledTableRow key={row?.hashCode}>
+                <StyledTableRow key={row?.id}>
+                  <StyledTableCell component="th" scope="row">
+                    {row?.id}
+                  </StyledTableCell>
                   <StyledTableCell component="th" scope="row">
                     {row?.descripcion}
                   </StyledTableCell>
@@ -236,13 +207,13 @@ export default function CreateInvited() {
                     {row?.cantidad}
                   </StyledTableCell>
                   <StyledTableCell component="th" scope="row" align="center">
-                    {row?.respuesta ? "Si" : "No"}
+                    {row?.respuesta ? "Si" : "No hay respuesta"}
                   </StyledTableCell>
                   <StyledTableCell component="th" scope="row" align="center">
                     <IconButton
                       style={{ color: "#25d366" }}
                       aria-label="shared"
-                      onClick={() => redireccionar(row?.hashCode)}
+                      onClick={() => redireccionar(row?.id)}
                     >
                       <WhatsAppIcon />
                     </IconButton>

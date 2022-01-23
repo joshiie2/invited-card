@@ -9,18 +9,13 @@ import Thanks from "./views/Thanks";
 
 var hist = createBrowserHistory();
 
-let hash = window.location.search.substring(1);
-hash = hash ? decodeURIComponent(hash?.substring(2, hash?.length)) : null;
-console.log(hash);
+let id = window.location.search.substring(1);
+id = id ? decodeURIComponent(id?.substring(2, id?.length)) : null;
 
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route
-        exact={true}
-        path="/"
-        component={() => <LandingPage hash={hash} />}
-      />
+      <Route exact={true} path="/" component={() => <LandingPage id={id} />} />
       <Route exact={true} path="/crear-invitacion" component={CreateInvited} />
       <Route exact={true} path="/agradecimiento" component={Thanks} />
     </Switch>

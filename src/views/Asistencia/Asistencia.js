@@ -24,7 +24,6 @@ export default function Asistencia(Props) {
   };
 
   const actualizar = async () => {
-    console.log(data.id);
     try {
       const docRef = doc(
         db,
@@ -41,7 +40,7 @@ export default function Asistencia(Props) {
   };
 
   const BTN_ASISTENCIA =
-    data && !data?.data().respuesta ? (
+    data && !data?.respuesta ? (
       <FadeInSection>
         <Button
           color="rose"
@@ -57,16 +56,16 @@ export default function Asistencia(Props) {
     ) : null;
 
   const CHECK =
-    data && !data?.data().respuesta ? (
+    data && !data?.respuesta ? (
       <input type="checkbox" id="agree" onChange={checkboxHandler} />
     ) : null;
 
   const CANTIDAD_PERSONAS =
-    data && !data?.data().respuesta ? (
+    data && !data?.respuesta ? (
       <FadeInSection>
         <h5 className={classes.description}>
           <b>
-            {data?.data().cantidad} {Constantes.PERSONAS}
+            {data?.cantidad} {Constantes.PERSONAS}
           </b>
         </h5>
       </FadeInSection>

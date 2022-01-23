@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,12 +11,12 @@ import Bienvenida from "./Bienvenida/Bienvenida";
 import Ceremonia from "./Locaciones/Ceremonia";
 import Celebracion from "./Locaciones/Celebracion";
 import MesaRegalos from "./Regalos/MesaRegalos";
-import Asistencia from "./Asistencia/Asistencia";
 import Vestimenta from "./Vestimenta/Vestimenta";
 import Fotos from "./Fotos/Fotos";
 import Background from "assets/img/wedding/background.jpeg";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
 import db from "constants/FirebaseConfig";
+import Asistencia from "./Asistencia/Asistencia";
 
 const useStyles = makeStyles(styles);
 
@@ -23,26 +24,27 @@ export default function LandingPage(Props) {
   const classes = useStyles();
   const [data, setData] = useState();
   const { ...rest } = Props;
-  const { hash } = Props;
+  const { id } = Props;
 
-  const obtenerDatos = async () => {
-    const q = query(
-      collection(db, process.env.REACT_APP_FIREBASE_COLLECTION),
-      where("hashCode", "==", hash)
+  const buscarPorId = async () => {
+    const docSnap = await getDoc(
+      doc(db, process.env.REACT_APP_FIREBASE_COLLECTION, id)
     );
 
-    let info;
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      info = doc;
-    });
+    let str = {};
+    if (docSnap.exists()) {
+      str = {
+        id: docSnap.id,
+        ...docSnap.data(),
+      };
+    }
 
-    return info;
+    return str;
   };
 
   useEffect(() => {
-    if (hash) {
-      obtenerDatos().then((response) => setData(response));
+    if (id) {
+      buscarPorId().then((response) => setData(response));
     }
   }, []);
 
