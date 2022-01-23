@@ -53,10 +53,7 @@ export default function CreateInvited() {
   }, []);
 
   const obtenerDatos = async () => {
-    const q = query(
-      collection(db, process.env.REACT_APP_FIREBASE_COLLECTION),
-      where("respuesta", "==", true)
-    );
+    const q = query(collection(db, process.env.REACT_APP_FIREBASE_COLLECTION));
 
     let info = new Array();
     const querySnapshot = await getDocs(q);
@@ -116,6 +113,7 @@ export default function CreateInvited() {
             }
           );
           setResultado(hash);
+          obtenerDatos().then((response) => setData(response));
         } catch (e) {
           console.error("Error adding document: ", e);
         }
@@ -139,6 +137,11 @@ export default function CreateInvited() {
   function onlyNumbers(e) {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
   }
+
+  const URL =
+    process.env.REACT_APP_PROD_ENV == "SI"
+      ? `${process.env.REACT_APP_IP_PROD}${resultado}`
+      : `${process.env.REACT_APP_IP_LOCAL}${resultado}`;
 
   return (
     <div>
@@ -174,11 +177,7 @@ export default function CreateInvited() {
         <TextField
           label="Codigo"
           multiline
-          value={
-            process.env.REACT_APP_PROD_ENV == "SI"
-              ? `${process.env.REACT_APP_IP_PROD}${resultado}`
-              : `${process.env.REACT_APP_IP_LOCAL}${resultado}`
-          }
+          value={URL}
           disabled={true}
           fullWidth
         />
@@ -211,12 +210,13 @@ export default function CreateInvited() {
                   <StyledTableCell align="center">
                     {row?.respuesta ? "Si" : "No"}
                   </StyledTableCell>
-                  <StyledTableCell align="center">
+                  <StyledTableCell align="center" style={{ width: 100 }}>
                     {row?.hashCode}
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     <a
-                      href="https://api.whatsapp.com/send?phone=6442460683"
+                      href={`whatsapp://send?text=Buen dia! ${URL}${row.hashCode}`}
+                      data-action="share/whatsapp/share"
                       target="_blank"
                       rel="noreferrer"
                     >

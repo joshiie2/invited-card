@@ -10,7 +10,8 @@ import Thanks from "./views/Thanks";
 var hist = createBrowserHistory();
 
 let hash = window.location.search.substring(1);
-hash = hash ? hash.split("=")[1] : null;
+hash = hash ? hash?.substring(2, hash?.length) : null;
+console.log(hash);
 
 ReactDOM.render(
   <Router history={hist}>
