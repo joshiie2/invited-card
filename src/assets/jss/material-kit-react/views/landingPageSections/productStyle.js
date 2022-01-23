@@ -14,14 +14,14 @@ const productStyle = {
   },
   title2: {
     ...title,
-    marginLeft: "15px",
-    marginRight: "15px",
+    marginLeft: "5px",
+    marginRight: "5px",
     marginBottom: "1rem",
     marginTop: "30px",
     textDecoration: "none",
     fontFamily: "'Great Vibes', cursive",
     fontSize: "60px",
-    color: "#999",
+    color: "#D8B6A4",
   },
   description: {
     color: "#999",

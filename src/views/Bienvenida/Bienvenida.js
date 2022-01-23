@@ -20,21 +20,23 @@ export default function Bienvenida() {
     <div id="invitacion" className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={12}>
+          {" "}
           <h2 className={`pulse ${classes.title2}`}>
             {Constantes.TITULO_BIENVENIDA}
           </h2>
-          <h3 className={classes.description}>
+          <h3
+            className={classes.description}
+            style={{ padding: 10, position: "relative" }}
+          >
             Hay momentos en la vida que son especiales por sí solos, pero{" "}
             <br></br> sin lugar a dudas, el hecho de que Dios nos haya permitido
             <br></br> compartir junto a ustedes nuestro feliz comienzo, lo
             <br></br> convierte en un dia inolvidable. <br></br> <br></br>{" "}
             Gracias por hacer de este día algo especial.
           </h3>
+          <Timer />
         </GridItem>
       </GridContainer>
-      <div>
-        <Timer />
-      </div>
     </div>
   );
 }
