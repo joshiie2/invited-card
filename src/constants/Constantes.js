@@ -32,6 +32,8 @@ export const TEXTO_INFORMATIVO_REGALOS_CONTINUED =
 export const TEXTO_INFORMATIVO_REGALOS_FINISHED = "tienes algunas sugerencias:";
 export const ID_MESA_REGALO = "2C3WN6P9RX8A7";
 export const URL_MESA_REGALOS = `https://www.amazon.com.mx/wedding/jorge-rios-vianney-moroyoqui-esperanza-february-2022/registry/${ID_MESA_REGALO}`;
+export const ID_MESA_REGALO2 = "50801732";
+export const URL_MESA_REGALOS2 = `https://mesaderegalos.liverpool.com.mx/milistaderegalos/${ID_MESA_REGALO2}`;
 
 /* Asistencia */
 export const TITULO_ASISTENCIA = "CONFIRMA TU ASISTENCIA";
@@ -44,6 +46,7 @@ export const MES_EVENTO = "Feb";
 export const ANIO_EVENTO = "2022";
 
 export const BTN_MESA = "AMAZON | MESA";
+export const BTN_MESA2 = "LIVERPOOL | MESA";
 export const BTN_DATOS_BANCARIOS = "EFECTIVO";
 export const BTN_VER_UBICACION = "VER UBICACIÓN";
 export const BTN_CONFIRMAR_ASISTENCIA = "SI, ALLÍ ESTARÉ";

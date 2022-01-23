@@ -50,6 +50,18 @@ export default function MesaRegalos() {
               {Constantes.BTN_MESA} {Constantes.ID_MESA_REGALO}
             </Button>
           </FadeInSection>
+          <br></br>
+          <FadeInSection>
+            <Button
+              color="rose"
+              onClick={() => {
+                window.open(Constantes.URL_MESA_REGALOS2);
+              }}
+              style={{ width: "250px" }}
+            >
+              {Constantes.BTN_MESA2} {Constantes.ID_MESA_REGALO}
+            </Button>
+          </FadeInSection>
         </GridItem>
       </GridContainer>
     </div>

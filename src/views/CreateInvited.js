@@ -126,12 +126,8 @@ export default function CreateInvited() {
   const redireccionar = (id) => {
     const encode = encodeURIComponent(id);
     const url = URL + encode;
-    let anchor = document.createElement("a");
     const HREF = `whatsapp://send?text=${MENSAJE} %0a ${url}`;
-    anchor.href = HREF;
-    anchor.target = "_blank";
-    anchor.click();
-    console.log(HREF);
+    window.open(HREF);
   };
 
   const URL =
