@@ -66,6 +66,7 @@ export default function CreateInvited() {
   const [descripcion, setDescripcion] = useState("");
   const [resultado, setResultado] = useState("");
   const [data, setData] = useState();
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     obtenerDatos().then((response) => setData(response));
@@ -75,11 +76,13 @@ export default function CreateInvited() {
     const q = query(collection(db, process.env.REACT_APP_FIREBASE_COLLECTION));
 
     let info = new Array();
+    let total = 0;
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       info.push({ id: doc.id, ...doc.data() });
+      total = total + Number(doc.data().cantidad);
     });
-
+    setTotal(total);
     return info;
   };
 
@@ -126,7 +129,7 @@ export default function CreateInvited() {
   const redireccionar = (id) => {
     const encode = encodeURIComponent(id);
     const url = URL + encode;
-    const HREF = `whatsapp://send?text=${MENSAJE} %0a ${url}`;
+    const HREF = `https://api.whatsapp.com/send?text=${MENSAJE} %0a ${url}`;
     window.open(HREF);
   };
 
@@ -180,10 +183,11 @@ export default function CreateInvited() {
         <Table aria-label="customized table">
           <TableHead>
             <TableRow>
-              {HEADER_COLUMN.map((index) => {
+              {HEADER_COLUMN.map((index, i) => {
                 return (
                   <StyledTableCell key={index} align="center">
                     {index}
+                    {i == 2 ? `(${total})` : null}
                   </StyledTableCell>
                 );
               })}
@@ -202,9 +206,20 @@ export default function CreateInvited() {
                   <StyledTableCell component="th" scope="row" align="center">
                     {row?.cantidad}
                   </StyledTableCell>
-                  <StyledTableCell component="th" scope="row" align="center">
-                    {row?.respuesta ? "Si" : "No hay respuesta"}
-                  </StyledTableCell>
+                  {row?.respuesta ? (
+                    <StyledTableCell
+                      component="th"
+                      scope="row"
+                      align="center"
+                      style={{ backgroundColor: "green" }}
+                    >
+                      Si
+                    </StyledTableCell>
+                  ) : (
+                    <StyledTableCell component="th" scope="row" align="center">
+                      No hay respuesta
+                    </StyledTableCell>
+                  )}
                   <StyledTableCell component="th" scope="row" align="center">
                     <IconButton
                       style={{ color: "#25d366" }}
