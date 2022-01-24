@@ -60,16 +60,16 @@ export default function Asistencia(Props) {
       <input type="checkbox" id="agree" onChange={checkboxHandler} />
     ) : null;
 
-  const CANTIDAD_PERSONAS =
-    data && !data?.respuesta ? (
-      <FadeInSection>
-        <h5 className={classes.description}>
-          <b>
-            {data?.cantidad} {Constantes.PERSONAS}
-          </b>
-        </h5>
-      </FadeInSection>
-    ) : null;
+  const CANTIDAD_PERSONAS = data ? (
+    <FadeInSection>
+      <h5 className={classes.description}>
+        <b>
+          {data?.descripcion} <br></br>
+          {data?.cantidad} {Constantes.PERSONAS}
+        </b>
+      </h5>
+    </FadeInSection>
+  ) : null;
 
   return (
     <div id="asistencia" className={classes.section}>
@@ -81,7 +81,9 @@ export default function Asistencia(Props) {
           <h5 className={classes.description}>
             {Constantes.TEXTO_ASISTENCIA}
             <br></br>
-            {Constantes.TEXTO_ASISTENCIA_CONTINUED}
+            {data?.respuesta
+              ? Constantes.TEXTO_ASISTENCIA_CONFIRMED
+              : Constantes.TEXTO_ASISTENCIA_CONTINUED}
           </h5>
           <br></br>
           {CANTIDAD_PERSONAS}

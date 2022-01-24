@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "components/CustomButtons/Button";
 import TextField from "@material-ui/core/TextField";
-import CryptoJS from "crypto-js";
 import moment from "moment";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -14,9 +13,7 @@ import { withStyles } from "@material-ui/core";
 import {
   collection,
   query,
-  where,
   getDocs,
-  getDoc,
   addDoc,
   doc,
   deleteDoc,

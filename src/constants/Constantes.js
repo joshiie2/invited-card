@@ -39,6 +39,7 @@ export const URL_MESA_REGALOS2 = `https://mesaderegalos.liverpool.com.mx/milista
 export const TITULO_ASISTENCIA = "CONFIRMA TU ASISTENCIA";
 export const TEXTO_ASISTENCIA = "Esperamos que seas parte de este momento.";
 export const TEXTO_ASISTENCIA_CONTINUED = "¡Confírmanos tu asistencia!";
+export const TEXTO_ASISTENCIA_CONFIRMED = "¡Gracias por tu confirmación!";
 
 /* otros */
 export const DIA_EVENTO = "25";
