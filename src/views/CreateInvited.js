@@ -64,6 +64,7 @@ export default function CreateInvited() {
   const [resultado, setResultado] = useState("");
   const [data, setData] = useState();
   const [total, setTotal] = useState(0);
+  const [totalSi, setTotalSi] = useState(0);
 
   useEffect(() => {
     obtenerDatos().then((response) => setData(response));
@@ -74,12 +75,15 @@ export default function CreateInvited() {
 
     let info = new Array();
     let total = 0;
+    let totalSi = 0;
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       info.push({ id: doc.id, ...doc.data() });
       total = total + Number(doc.data().cantidad);
+      totalSi = totalSi + (doc.data().respuesta ? 1 : 0);
     });
     setTotal(total);
+    setTotalSi(totalSi);
     return info;
   };
 
@@ -185,6 +189,7 @@ export default function CreateInvited() {
                   <StyledTableCell key={index} align="center">
                     {index}
                     {i == 2 ? `(${total})` : null}
+                    {i == 3 ? `(Si ${totalSi}, No ${total - totalSi})` : null}
                   </StyledTableCell>
                 );
               })}
@@ -229,6 +234,7 @@ export default function CreateInvited() {
                       color="secondary"
                       aria-label="delete"
                       onClick={() => borrarInfo(row?.id)}
+                      disabled={row?.respuesta}
                     >
                       <DeleteIcon />
                     </IconButton>
