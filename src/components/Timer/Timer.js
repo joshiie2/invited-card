@@ -6,7 +6,7 @@ export default function Timer() {
   const [hour, setHour] = useState(0);
   const [minute, setMinute] = useState(0);
   const [second, setSecond] = useState(0);
-  const countDate = new Date("Feb 25, 2022 16:00:00").getTime();
+  const countDate = new Date("Feb 25, 2022 00:00:00").getTime();
   const now = new Date().getTime();
   const gap = countDate - now;
 
