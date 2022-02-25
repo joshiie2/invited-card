@@ -39,19 +39,19 @@ export default function Timer() {
     <div className="container">
       <div className="timer">
         <div className="days">
-          <div className="numbers">{day}</div>
+          <div className="numbers">0</div>
           <div className="string">Dias</div>
         </div>
         <div className="hours">
-          <div className="numbers">{hour}</div>
+          <div className="numbers">0</div>
           <div className="string">Horas</div>
         </div>
         <div className="minutes">
-          <div className="numbers">{minute}</div>
+          <div className="numbers">0</div>
           <div className="string">Minutos</div>
         </div>
         <div className="seconds">
-          <div className="numbers">{second}</div>
+          <div className="numbers">0</div>
           <div className="string">Segundos</div>
         </div>
       </div>
